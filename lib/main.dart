@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:homework/exCaculator.dart';
+import 'package:homework/Date_2/Calculator.dart';
 
 void main() {
   runApp(
-    const Caculator(),
+    const Calculator(),
   );
 }

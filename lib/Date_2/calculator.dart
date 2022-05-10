@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const Caculator());
+  runApp(const Calculator());
 }
 
-class Caculator extends StatelessWidget {
-  const Caculator({Key? key}) : super(key: key);
+class Calculator extends StatelessWidget {
+  const Calculator({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -189,23 +189,23 @@ class _MyHomePageState extends State<MyHomePage> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: items.map((e) {
                           dynamic colorBtn;
-                          dynamic onPerss;
+                          dynamic onPress;
                           switch (e['type']) {
                             case 'number':
                               colorBtn = Colors.grey;
-                              onPerss = setNumber;
+                              onPress = setNumber;
                               break;
                             case 'clear':
                               colorBtn = Colors.red;
-                              onPerss = onClear;
+                              onPress = onClear;
                               break;
                             case 'method':
                               colorBtn = Colors.orange;
-                              onPerss = setMethod;
+                              onPress = setMethod;
                               break;
                             case 'result':
                               colorBtn = Colors.green;
-                              onPerss = handleResult;
+                              onPress = handleResult;
                               break;
                             default:
                               break;
@@ -220,7 +220,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                     fontWeight: FontWeight.w600,
                                     fontSize: 24),
                               ),
-                              onPressed: () => onPerss(e['value']),
+                              onPressed: () => onPress(e['value']),
                               style: ElevatedButton.styleFrom(
                                   primary: colorBtn,
                                   shape: const CircleBorder(),

@@ -157,7 +157,9 @@ class _MyHomePageState extends State<MyHomePage> {
             width: 500,
             child: Row(
               children: [
-                const Expanded(child: SizedBox()),
+                const Expanded(
+                  child: SizedBox(),
+                ),
                 Center(
                   child: Text(
                     "$_currentResult",
@@ -171,7 +173,9 @@ class _MyHomePageState extends State<MyHomePage> {
                         fontWeight: FontWeight.w600),
                   ),
                 ),
-                const Padding(padding: EdgeInsets.symmetric(horizontal: 4))
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 4),
+                )
               ],
             ),
           ),
@@ -179,15 +183,19 @@ class _MyHomePageState extends State<MyHomePage> {
             color: Colors.grey,
             height: 1,
           ),
-          const Padding(padding: EdgeInsets.only(top: 20)),
+          const Padding(
+            padding: EdgeInsets.only(top: 20),
+          ),
           Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: numbers
-                  .map((items) => Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: items.map((e) {
+                  .map(
+                    (items) => Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: items.map(
+                        (e) {
                           dynamic colorBtn;
                           dynamic onPress;
                           switch (e['type']) {
@@ -210,25 +218,31 @@ class _MyHomePageState extends State<MyHomePage> {
                             default:
                               break;
                           }
-                          return Column(children: <Widget>[
-                            const Padding(padding: EdgeInsets.only(top: 10)),
-                            ElevatedButton(
-                              child: Text(
-                                "${e['value']}",
-                                style: const TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 24),
+                          return Column(
+                            children: <Widget>[
+                              const Padding(
+                                padding: EdgeInsets.only(top: 10),
                               ),
-                              onPressed: () => onPress(e['value']),
-                              style: ElevatedButton.styleFrom(
-                                  primary: colorBtn,
-                                  shape: const CircleBorder(),
-                                  padding: const EdgeInsets.all(24)),
-                            )
-                          ]);
-                        }).toList(),
-                      ))
+                              ElevatedButton(
+                                child: Text(
+                                  "${e['value']}",
+                                  style: const TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 24),
+                                ),
+                                onPressed: () => onPress(e['value']),
+                                style: ElevatedButton.styleFrom(
+                                    primary: colorBtn,
+                                    shape: const CircleBorder(),
+                                    padding: const EdgeInsets.all(24)),
+                              ),
+                            ],
+                          );
+                        },
+                      ).toList(),
+                    ),
+                  )
                   .toList()),
         ],
       ),

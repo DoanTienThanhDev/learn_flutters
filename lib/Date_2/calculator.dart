@@ -96,18 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
       });
     }
 
-    void setMethod(String method) {
-      setState(() {
-        if (_method == '') {
-          _lastResult = _currentResult;
-          _currentResult = method;
-          _method = method;
-        } else {
-          _currentResult = method;
-          _method = method;
-        }
-      });
-    }
+  
 
     void handleResult(dynamic result) {
       dynamic _result = 0;
@@ -143,6 +132,22 @@ class _MyHomePageState extends State<MyHomePage> {
         _lastResult = '0';
         _method = '';
         _currentResult = _result;
+      });
+    }
+
+      void setMethod(String method) {
+      setState(() {
+        if (_lastResult != '' && _currentResult != '0' && _method != '') {
+         handleResult('=');
+         _method= method;
+        } else if (_method == '') {
+          _lastResult = _currentResult;
+          _currentResult = method;
+          _method = method;
+        } else {
+          _currentResult = method;
+          _method = method;
+        }
       });
     }
 

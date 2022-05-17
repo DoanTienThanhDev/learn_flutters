@@ -5,6 +5,6 @@ void main() {
   runApp(MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(),
-      home: const MyHomePage(title: 'DATE 1'),
+      home: const MyHomePage(title: 'HOME PAGE'),
     ));
 }

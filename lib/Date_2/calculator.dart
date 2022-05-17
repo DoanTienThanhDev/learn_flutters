@@ -239,22 +239,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       ).toList(),
                     ),
                   )
-                  .toList()),
-          Padding(
-            padding: const EdgeInsets.only(top: 24.0),
-            child: SizedBox(
-              width: MediaQuery.of(context).size.width - 48,
-              height: 48,
-              child: Expanded(
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: const Text('Back To Home'),
-                ),
-              ),
-            ),
-          ),
+                  .toList()),   
         ],
       ),
     );

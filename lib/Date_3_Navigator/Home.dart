@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:homework/Date_3_Navigator/UserDetail.dart';
 
 class UserInfo {
   int id;
@@ -131,7 +132,16 @@ class HomeNavigation extends StatelessWidget {
             return Card(
               margin: const EdgeInsets.symmetric(horizontal: 28, vertical: 16),
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) =>  UserDetail(
+                        user: users[index],
+                      ),
+                    ),
+                  );
+                },
                 style: btnStyle,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

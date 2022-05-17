@@ -1,19 +1,11 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const Ex4());
-}
-
 class Ex4 extends StatelessWidget {
   const Ex4({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(),
-      home: const MyHomePage(title: 'Enouvo Training Flutter'),
-    );
+    return const MyHomePage(title: 'Enouvo Training Flutter');
   }
 }
 
@@ -30,8 +22,12 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Text(widget.title),
-          leading: IconButton(icon: const Icon(Icons.menu), onPressed: () {})),
+        title: Text(widget.title),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios),
+          onPressed: () => Navigator.pop(context),
+        ),
+      ),
       body: SingleChildScrollView(
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -153,7 +149,8 @@ class _MyHomePageState extends State<MyHomePage> {
                                   backgroundImage: NetworkImage(
                                       'https://media.vov.vn/sites/default/files/styles/large/public/2022-02/5619240_cover_batman.jpg'),
                                 ),
-                                const Padding(padding: EdgeInsets.only(left: 10)),
+                                const Padding(
+                                    padding: EdgeInsets.only(left: 10)),
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: const <Widget>[

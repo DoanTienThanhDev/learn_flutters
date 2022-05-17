@@ -1,19 +1,11 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const HomePage());
-}
-
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(),
-      home: const MyHomePage(title: 'Therapist'),
-    );
+    return const MyHomePage(title: 'Therapist');
   }
 }
 
@@ -80,11 +72,18 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Text(widget.title),
-          actions: <Widget>[
-            IconButton(onPressed: () {}, icon: const Icon(Icons.sort_rounded))
-          ],
-          leading: IconButton(icon: const Icon(Icons.menu), onPressed: () {})),
+        title: Text(widget.title),
+        actions: <Widget>[
+          IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.sort_rounded),
+          )
+        ],
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios),
+          onPressed: () => Navigator.pop(context),
+        ),
+      ),
       body: Column(children: <Widget>[
         const Padding(padding: EdgeInsets.symmetric(vertical: 8)),
         SizedBox(
@@ -168,7 +167,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 const Icon(Icons.star, size: 18),
-                                  const Padding(
+                                const Padding(
                                     padding: EdgeInsets.only(left: 2)),
                                 Text(
                                   list[index].star,

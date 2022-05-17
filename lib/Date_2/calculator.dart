@@ -1,21 +1,10 @@
 import 'package:flutter/material.dart';
-
-void main() {
-  runApp(const Calculator());
-}
-
 class Calculator extends StatelessWidget {
   const Calculator({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Calculator'),
-    );
+    return const MyHomePage(title: 'Calculator');
   }
 }
 
@@ -96,8 +85,6 @@ class _MyHomePageState extends State<MyHomePage> {
       });
     }
 
-  
-
     void handleResult(dynamic result) {
       dynamic _result = 0;
       if (_method == '' || (_method != '' && _lastResult == '')) {
@@ -135,11 +122,11 @@ class _MyHomePageState extends State<MyHomePage> {
       });
     }
 
-      void setMethod(String method) {
+    void setMethod(String method) {
       setState(() {
         if (_lastResult != '' && _currentResult != '0' && _method != '') {
-         handleResult('=');
-         _method= method;
+          handleResult('=');
+          _method = method;
         } else if (_method == '') {
           _lastResult = _currentResult;
           _currentResult = method;
@@ -154,6 +141,10 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        leading:  IconButton(
+          icon: const Icon(Icons.arrow_back_ios),
+          onPressed: () => Navigator.pop(context),
+        ),
       ),
       body: Column(
         children: <Widget>[
@@ -249,6 +240,21 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   )
                   .toList()),
+          Padding(
+            padding: const EdgeInsets.only(top: 24.0),
+            child: SizedBox(
+              width: MediaQuery.of(context).size.width - 48,
+              height: 48,
+              child: Expanded(
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text('Back To Home'),
+                ),
+              ),
+            ),
+          ),
         ],
       ),
     );

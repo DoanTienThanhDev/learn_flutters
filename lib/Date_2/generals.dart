@@ -1,19 +1,11 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const Generals());
-}
-
 class Generals extends StatelessWidget {
   const Generals({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(),
-      home: const MyHomePage(title: 'Therapist'),
-    );
+    return const MyHomePage(title: 'Therapist');
   }
 }
 
@@ -43,8 +35,12 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: Text(widget.title),
-          leading: IconButton(icon: const Icon(Icons.menu), onPressed: () {})),
+        title: Text(widget.title),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios),
+          onPressed: () => Navigator.pop(context),
+        ),
+      ),
       body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
